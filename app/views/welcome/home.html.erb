@@ -1,0 +1,15 @@
+<h1>Welcome <%= current_username %></h1>
+
+<div class="sleekFrame">
+	<%= render partial: 'username_form' %>
+</div>
+
+
+<div class="sleekFrame">
+	<h3>stats</h3>
+
+	<%= render partial: 'stats/stat_table', locals: {user_bullets: @user_bullets, user_answers: @user_answers} %>
+</div>
+
+<br>
+<%= link_to 'View All Unanswered Questions', stats_unanswered_path %>

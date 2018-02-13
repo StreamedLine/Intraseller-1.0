@@ -1,0 +1,16 @@
+<h1>Available Items</h1>
+<h2>Please Select/Search Item</h2>
+
+<h3>Available Items for <%= @item.bhsku %></h3>
+
+<br>
+<table>
+	<% @available_items.each do |item| %>
+		<tr>
+			<td>
+				<%= render partial: 'form', locals: {:item => @item, :compared => item, :comparison => @comparison} %>
+			</td>
+			<td><%= item.title %></td>
+		</tr>
+	<% end %>
+</table>

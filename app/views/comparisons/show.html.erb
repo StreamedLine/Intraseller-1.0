@@ -1,0 +1,14 @@
+<div class="comparison_main">
+	<h1>Comparison Details</h1>
+	<%= render partial: 'comparisons/compared_items', locals: {:comparison => @comparison} %>
+
+	<div class="sleekFrame squish_width">
+		<h3>quick comparison</h3>
+		<% @comparison.get_bullets.each do |bullet| %>
+			<%= render partial: 'bullets/bullet', locals: {:bullet => bullet} %>
+		<% end %>
+
+		<%= render partial: 'bullets/form', locals: {:target => @comparison, :bullet => @comparison.bullets.build} %>
+	</div>
+
+</div>

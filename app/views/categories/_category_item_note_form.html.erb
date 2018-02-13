@@ -1,0 +1,6 @@
+<%= form_for(category_item, url: "/category_items/#{category_item.id}") do |f| %>
+	<%= f.label :note, class: 'aligntop' %>
+	<%= f.text_area :note, placeholder: 'items relationship to this category', class: 'camouflage' %>
+
+	<%= f.submit 'update note' %>
+<% end %>

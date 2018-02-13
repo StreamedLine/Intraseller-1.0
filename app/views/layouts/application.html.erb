@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intraseller</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="flash_message">
+      <%= render partial: 'layouts/flash_messages' %>
+    </div>
+
+    <header>
+      <%= render partial: 'layouts/navigation' %>    
+      <span><%= "You are signed in as #{current_user.email}" if user_signed_in? %></span>   
+    </header>
+
+    <%= yield %>
+
+  </body>
+</html>

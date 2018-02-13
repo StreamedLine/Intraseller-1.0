@@ -1,0 +1,47 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.basic_item {
+	margin: 5px;
+	padding: 5px;
+	border-bottom: 1px dotted grey;
+	display: block;
+}
+
+.basic_only .basic_item {
+	background: #eee;
+	width: 30%;
+	padding: 10px;
+}
+
+// UGLY FIX - UNDOING BASIC_ITEM STYLE WHEN ONE IS IN THE OTHER
+.basic_item .basic_item {
+	display: inline;
+	border: none;
+}
+// END UGLY FIX
+
+.basic_only .info_span {
+	display: block;
+}
+
+.basic_only .basic_item a {
+	font-size: 1.25em;
+}
+
+.full_item {
+	border-left: 3px solid grey;
+	display: inline-block
+}
+
+.full_item h1,
+.full_item h2,
+.full_item h3 {
+	text-align: center;
+}
+
+.full_item .info_span {
+	display: block
+}
+

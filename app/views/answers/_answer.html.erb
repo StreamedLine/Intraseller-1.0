@@ -1,0 +1,5 @@
+<p>A: <%= answer.content %> 
+	<span class='deleteX'>
+		<%= link_to 'Delete', answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %> 
+	</span>
+</p>

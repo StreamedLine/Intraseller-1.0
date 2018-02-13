@@ -1,0 +1,5 @@
+<div class="basic_item">
+	<%= render partial: 'items/item', locals: {:item => category_item.item, :category => category_item.category} %>
+
+	<%= render partial: 'categories/category_item_note_form', locals: {:category_item => category_item} %>
+</div>

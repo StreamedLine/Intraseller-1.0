@@ -1,0 +1,28 @@
+.questions_and_answers {
+	margin-bottom: 20px;
+	padding: 10px;
+	line-height: 120%;;
+}
+
+.question_title {
+	font-weight: bold;
+	color: steelblue
+}
+
+.questions_and_answers summary::-webkit-details-marker {
+  display: none
+}
+.questions_and_answers summary:after {
+  border-radius: 5px; 
+  content: "[+]";  
+  float: left; 
+  font-size: 1em; 
+  font-weight: bold; 
+  margin: 0 10px 0 0; 
+  padding: 0; 
+  text-align: center; 
+  width: 20px;
+}
+.questions_and_answers details[open] summary:after {
+  content: "[-]";
+}

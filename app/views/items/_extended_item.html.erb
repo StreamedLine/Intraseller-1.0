@@ -1,0 +1,35 @@
+<div class="extended_item">
+	<!-- SECTION 1  IMAGE-->
+	<div class="inline_section">
+		<img src="<%= item.image %>" alt="image not found/available" />
+	</div>
+	
+	<!-- SECTION 2  BULLETS-->
+	<div class="inline_section sleekFrame">
+		<h3>Quick Info</h3>
+		<%= render partial: 'bullets/bullet', collection: item.bullets, as: :bullet %>
+
+		<%= render partial: 'bullets/form', locals: {:target => item, :bullet => item.bullets.build} %>
+	</div>
+
+	<!-- SECTION 3  COMPARISONS-->
+	<div class="inline_section sleekFrame">
+		<%= render partial: 'comparisons/comparisons_for_item', locals: {:item => item} %>
+	</div>
+
+	<!-- SECTION 4  Q&A-->
+	<div class="sleekFrame">
+		<h3>Q&A</h3>
+		<%= render partial: 'questions/questions', collection: item.questions, as: :question %>
+		
+		<hr>
+		<h4 class="green_text">Add question here</h4>
+		<%= render partial: 'questions/form', locals: {:parent => item, :question => item.questions.build} %>
+	</div>
+	
+	<div class="sleekFrame">
+		<h3>Categories</h3>
+
+		<%= render partial: 'category_item_joins/item_category_big_picture', locals: {:item => item} %>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+.field_with_errors label {
+  border: 2px solid tomato;
+}
+
+.form {
+	display: inline-block;
+    background: #e3d3e3;
+    padding: 10px;
+    border: 4px solid #939393
+}
+
+.form input[type=text] {
+	width: 100%
+}
+
+.form input[type="submit"] {
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: 1.5em!important;
+    width: 100%;
+    background: darkgrey;
+    color: white;
+    cursor: pointer;
+}
+
+.form input[type="submit"]:active {
+    color: green
+}
+
+.camouflage {
+    background: inherit;
+    border: none;
+}
