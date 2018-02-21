@@ -7,13 +7,14 @@
 </div>
 
 <script id="category_index_item_template" type="text/x-handlebars-template">
+	{{#each this}}
 		<div class="basic_item">
 			<h3><a href="/categories/{{id}}">{{name}}</a></h3>
 		  <p>
 		  	<span class="info_span"><b>updated_at:</b> {{updated_at}}</span>  
 				<div class="tags">
-					{{#each @tags}}
-						<div class="tag">{{@label}}</div>
+					{{#each tags}}
+						<div class="tag">{{label}}</div>
 					{{/each}}
 				</div>
 				<br>
@@ -21,4 +22,5 @@
 				<a class="grey_text" href="/categories/{{id}}/edit">edit category</a>
 			</p>
 		</div>
+	{{/each}}
 </script>
