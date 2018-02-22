@@ -9,18 +9,22 @@ class Category {
 
 Category.html = function(data) {
 	var source = $('#category_index_item_template').html();
-	var template = Handlebars.compile(source);
+	Handlebars.registerPartial("tags", $("#category_tags_partial").html());
+	Handlebars.registerPartial("category", $("#category_partial").html());
 
+	var template = Handlebars.compile(source);
 	var html = template(data);
 	return html
 }
 
-$(function(){
+function loadCategories() {
 	$.getJSON('/categories',function(response){
-		var html = Category.html(response);
-		console.log(response, html)
-		$('.basic_only')[0].innerHTML = html;
+		$('.basic_only').append(Category.html(response));
 	});
+}
+
+$(function(){
+	loadCategories();
 })
 
 //helper
