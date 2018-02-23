@@ -24,7 +24,9 @@ function loadCategories() {
 }
 
 $(function(){
-	loadCategories();
+	if (location.pathname.match(/categories/)) {
+		loadCategories();
+	}	
 })
 
 //helper
