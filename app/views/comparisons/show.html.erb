@@ -1,15 +1,5 @@
 <div class="comparison_main">
-	<h1>Comparison Details</h1>
-	<%= render partial: 'comparisons/compared_items', locals: {:comparison => @comparison} %>
-
-	<div class="sleekFrame squish_width">
-		<h3>quick comparison</h3>
-		<% @comparison.get_bullets.each do |bullet| %>
-			<%= render partial: 'bullets/bullet', locals: {:bullet => bullet} %>
-		<% end %>
-
-		<%= render partial: 'bullets/form', locals: {:target => @comparison, :bullet => @comparison.bullets.build} %>
-	</div>
+	
 </div>
 
 <script id="comparison_show_template" type="x-handlebars-template">
@@ -31,13 +21,13 @@
 	<div class="sleekFrame squish_width">
 		<h3>quick comparison</h3>
 		
-		{{#each bullet}}
+		{{#each bullets}}
 		<div class="nugget">
 			<span title="added by <%= current_user.email %>">
 				{{nugget}}
 			</span>
 			<span class="deleteX">
-				<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/bullets/{{id}}">Delete</a> 
+				<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/bullets/{{2}}">Delete</a> 
 			</span>
 		</div>
 		{{/each}}
