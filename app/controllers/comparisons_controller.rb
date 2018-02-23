@@ -3,9 +3,11 @@ class ComparisonsController < ApplicationController
 	
 	def show
 		@comparison = Comparison.find(params[:id])
+
 		respond_to do |format|
-      format.html {render :show}
-      format.json {render json: @comparison}
+      format.html { render :show }
+      format.json { @comparison.bullets = @comparison.get_bullets
+      							render json: @comparison }
     end
 	end
 
