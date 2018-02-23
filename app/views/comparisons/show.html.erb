@@ -10,5 +10,42 @@
 
 		<%= render partial: 'bullets/form', locals: {:target => @comparison, :bullet => @comparison.bullets.build} %>
 	</div>
-
 </div>
+
+<script id="comparison_show_template" type="x-handlebars-template">
+	<h1>Comparison Details</h1>
+	
+	<div class="comparison_header">
+		<a href="/items/{{item.id}}">
+			{{item.title}}
+			<img src="{{item.image}}" class="small_image alignmiddle"> 
+		</a>
+		<span class="enlarge">⇔</span>
+
+		<a href="/items/{{compared.id}}">
+			<img src="{{compared.image}}" class="small_image alignmiddle">
+			{{compared.title}}
+		</a>
+	</div>
+
+	<div class="sleekFrame squish_width">
+		<h3>quick comparison</h3>
+		
+		{{#each bullet}}
+		<div class="nugget">
+			<span title="added by <%= current_user.email %>">
+				{{nugget}}
+			</span>
+			<span class="deleteX">
+				<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/bullets/{{id}}">Delete</a> 
+			</span>
+		</div>
+		{{/each}}
+
+		<form class="new_bullet" id="new_bullet" action="/comparisons/1/bullets" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="erJzJSu/nqI42KNqSabkz1RTa2UeYbWsY/r5WvTbCyc83byffaR1367avXVWTXpxfV091zQAgUHUHOeGyx0CZA==">
+			<input type="text" name="bullet[nugget]" id="bullet_nugget">
+	
+			<input type="submit" name="commit" value="add point" data-disable-with="add point">
+		</form>
+	</div>
+</script>
