@@ -5,12 +5,16 @@ class BulletsController < ApplicationController
 		parent = item_or_comparison
 		bullet = parent.bullets.build(bullets_params)
 		bullet.user_id = current_user.id
+		
 		if parent.save
 			flash[:notice] = 'Data added'
 		else
 			flash[:error] = 'Data removed'
 		end	
-		redirect_to send("#{parent.class.to_s.downcase}_path", parent)
+		respond_to do |format|
+			format.html	{redirect_to send("#{parent.class.to_s.downcase}_path", parent)}
+			format.json {render json: bullet}
+		end
 	end
 
 	def destroy

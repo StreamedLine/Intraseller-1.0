@@ -22,20 +22,25 @@
 		<h3>quick comparison</h3>
 		
 		{{#each bullets}}
-		<div class="nugget">
-			<span title="added by <%= current_user.email %>">
-				{{nugget}}
-			</span>
-			<span class="deleteX">
-				<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/bullets/{{2}}">Delete</a> 
-			</span>
-		</div>
+			{{> bullet}}
 		{{/each}}
 
-		<form class="new_bullet" id="new_bullet" action="/comparisons/1/bullets" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="erJzJSu/nqI42KNqSabkz1RTa2UeYbWsY/r5WvTbCyc83byffaR1367avXVWTXpxfV091zQAgUHUHOeGyx0CZA==">
+		<form class="new_bullet" id="new_bullet" action="/comparisons/1/bullets" accept-charset="UTF-8" method="post">
+			<input name="utf8" type="hidden" value="✓">
+			<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 			<input type="text" name="bullet[nugget]" id="bullet_nugget">
-	
 			<input type="submit" name="commit" value="add point" data-disable-with="add point">
 		</form>
+	</div>
+</script>
+
+<script id="bullet_partial" type="text/x-handlebars-template">
+	<div class="nugget">
+		<span title="added by <%= current_user.email %>">
+			{{nugget}}
+		</span>
+		<span class="deleteX">
+			<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/bullets/{{id}}">Delete</a> 
+		</span>
 	</div>
 </script>
