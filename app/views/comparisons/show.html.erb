@@ -25,13 +25,17 @@
 			{{> bullet}}
 		{{/each}}
 
-		<form class="new_bullet" id="new_bullet" action="/comparisons/1/bullets" accept-charset="UTF-8" method="post">
-			<input name="utf8" type="hidden" value="✓">
-			<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-			<input type="text" name="bullet[nugget]" id="bullet_nugget">
-			<input type="submit" name="commit" value="add point" data-disable-with="add point">
-		</form>
+		{{> post_bullet}}
 	</div>
+</script>
+
+<script id="post_bullet_partial" type="text/x-handlebars-template">
+	<form class="new_bullet" id="new_bullet" action="/comparisons/<%= @comparison.id %>/bullets" accept-charset="UTF-8" method="post">
+		<input name="utf8" type="hidden" value="✓">
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		<input type="text" name="bullet[nugget]" id="bullet_nugget">
+		<input type="submit" name="commit" value="add point" data-disable-with="add point">
+	</form>
 </script>
 
 <script id="bullet_partial" type="text/x-handlebars-template">
