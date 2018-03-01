@@ -17,7 +17,6 @@ class Category {
 		var categories = [];
 		for (let i = 0; i < json.length; i++) {
 			categories.push(new Category(json[i]));
-			//debugger
 			categories[i].formatDate()
 		}
 		return categories
