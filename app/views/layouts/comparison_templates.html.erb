@@ -1,0 +1,26 @@
+<script id="comparison_show_template" type="x-handlebars-template">
+	<h1>Comparison Details</h1>
+	
+	<div class="comparison_header">
+		<a href="/items/{{item.id}}">
+			{{item.title}}
+			<img src="{{item.image}}" class="small_image alignmiddle"> 
+		</a>
+		<span class="enlarge">⇔</span>
+
+		<a href="/items/{{compared.id}}">
+			<img src="{{compared.image}}" class="small_image alignmiddle">
+			{{compared.title}}
+		</a>
+	</div>
+
+	<div class="sleekFrame squish_width">
+		<h3>quick comparison</h3>
+		
+		{{#each bullets}}
+			{{> bullet}}
+		{{/each}}
+
+		{{> post_bullet}}
+	</div>
+</script>
