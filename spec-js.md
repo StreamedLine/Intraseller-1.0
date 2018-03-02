@@ -2,15 +2,22 @@
 
 Specs:
 - [x] Use jQuery for implementing new requirements
+			- app/assets/javascripts files use jquery ajax calls
 - [x] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+			- app/assets/serializers use the active_model_serializers gem to turn the models into Json 
 - [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+			- the views/categories index page uses ajax triggered by the page loading
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+			- the views/comparisons show page displays all the bulletpoints associated with the comparison.
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
+			- views/comparisons show page allows creatinga new bulletpoint which is rendered on the page
 - [x] Translate JSON responses into js model objects.
+			- app/assets/javascripts/categories_index.js translates json into category objects
 - [x] At least one of the js model objects must have at least one method added by your code to the prototype.
+			- app/assets/javascripts/categories_index.js Category class has a formatDate() method added to the prototype
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message
