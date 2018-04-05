@@ -2,11 +2,15 @@ class Category {
 	constructor(category) {
 		this.id = category.id;
 		this.name = category.name;
-		this.updated_at = category.updated_at;
+		this.updatedAt = category.updated_at;
 		this.tags = category.tags;
 	}
 
-	static success(json) {
+	static success(json, filter) {
+		if (filter) {
+			json = json.filter(category=> category.items.length > 0);
+		}
+
 		var categories = Category.createCategories(json),
 				html = Category.categoriesHtml(categories);
 
@@ -37,19 +41,33 @@ class Category {
 	}
 
 	formatDate() {
-		this.updated_at = this.updated_at.match(/\d*-\d*-\d*/)[0] + ' ' + this.updated_at.match(/\d*:\d*:\d*/)[0];
+		this.updatedAt = this.updatedAt.match(/\d*-\d*-\d*/)[0] + ' ' + this.updatedAt.match(/\d*:\d*:\d*/)[0];
 	}
 }
 
+function addFilterButton() {
+	const button = $('<button>Filter Empty Categories</button>');
+	$('h3').first().after(button);
+	return button
+}
 
-function loadCategories() {
+function addFilter() {
+	const button = addFilterButton();
+	button.click(()=> {
+		$('.basic_only').html('');
+		loadCategories(true);
+	});
+}
+
+function loadCategories(filter) {
 	$.getJSON('/categories', function(response){
-		Category.success(response)
+		Category.success(response, filter)
 	});
 }
 
 $( document ).on('turbolinks:load', function(){
 	if (location.pathname.match(/categories/)) {
 		loadCategories();
+		addFilter();
 	}	
 })
