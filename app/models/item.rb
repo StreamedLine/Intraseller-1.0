@@ -19,8 +19,9 @@ class Item < ApplicationRecord
 	def links_attributes=(links_attributes)
 		links_attributes.each do |i, link_attributes|
 			url = link_attributes[:url]
+			next if self.links.any?{|l| l.url == url}
 			self.scrape_for_info(self, url)
-			self.links.build(url: url)
+			self.links.build(url: url) 
 		end
 	end
 

@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
 
   def edit
   	@item = Item.find(params[:id])
-    @item.links.build
+    # @item.links.build
     @item.tags.build
   end
 
